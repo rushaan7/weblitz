@@ -1069,7 +1069,7 @@ Tip: I automatically detect and install npm packages from your code imports (lik
                                       {fileInfo.name}
                                       {fileInfo.edited && (
                                         <span className={`text-[10px] px-1 rounded ${
-                                          isSelected ? 'bg-blue-400' : 'bg-orange-500 text-white'
+                                          isSelected ? 'bg-blue-400' : 'bg-purple-500 text-white'
                                         }`}>✓</span>
                                       )}
                                     </span>
@@ -1186,7 +1186,7 @@ Tip: I automatically detect and install npm packages from your code imports (lik
                     <div className="bg-black border border-gray-200 rounded-lg overflow-hidden">
                       <div className="px-4 py-2 bg-gray-100 text-gray-900 flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <div className="w-3 h-3 border-2 border-orange-500 border-t-transparent rounded-full animate-spin" />
+                          <div className="w-3 h-3 border-2 border-purple-500 border-t-transparent rounded-full animate-spin" />
                           <span className="font-mono text-sm">Streaming code...</span>
                         </div>
                       </div>
@@ -1204,7 +1204,7 @@ Tip: I automatically detect and install npm packages from your code imports (lik
                         >
                           {generationProgress.streamedCode || 'Starting code generation...'}
                         </SyntaxHighlighter>
-                        <span className="inline-block w-2 h-4 bg-orange-400 ml-1 animate-pulse" />
+                        <span className="inline-block w-2 h-4 bg-purple-400 ml-1 animate-pulse" />
                       </div>
                     </div>
                   )
@@ -1219,7 +1219,7 @@ Tip: I automatically detect and install npm packages from your code imports (lik
                             <span className="font-mono text-sm">{generationProgress.currentFile.path}</span>
                             <span className={`px-2 py-0.5 text-xs rounded ${
                               generationProgress.currentFile.type === 'css' ? 'bg-blue-600 text-white' :
-                              generationProgress.currentFile.type === 'javascript' ? 'bg-yellow-600 text-white' :
+                              generationProgress.currentFile.type === 'javascript' ? 'bg-purple-600 text-white' :
                               generationProgress.currentFile.type === 'json' ? 'bg-green-600 text-white' :
                               'bg-gray-200 text-gray-700'
                             }`}>
@@ -1246,7 +1246,7 @@ Tip: I automatically detect and install npm packages from your code imports (lik
                           >
                             {generationProgress.currentFile.content}
                           </SyntaxHighlighter>
-                          <span className="inline-block w-2 h-3 bg-orange-400 ml-4 mb-4 animate-pulse" />
+                          <span className="inline-block w-2 h-3 bg-purple-400 ml-4 mb-4 animate-pulse" />
                         </div>
                       </div>
                     )}
@@ -1261,7 +1261,7 @@ Tip: I automatically detect and install npm packages from your code imports (lik
                           </div>
                           <span className={`px-2 py-0.5 text-xs rounded ${
                             file.type === 'css' ? 'bg-blue-600 text-white' :
-                            file.type === 'javascript' ? 'bg-yellow-600 text-white' :
+                            file.type === 'javascript' ? 'bg-purple-600 text-white' :
                             file.type === 'json' ? 'bg-green-600 text-white' :
                             'bg-gray-200 text-gray-700'
                           }`}>
@@ -1340,7 +1340,7 @@ Tip: I automatically detect and install npm packages from your code imports (lik
               <div className="mx-6 mb-6">
                 <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                   <div 
-                    className="h-full bg-gradient-to-r from-orange-500 to-orange-400 transition-all duration-300"
+                    className="h-full bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-400 transition-all duration-300"
                     style={{
                       width: `${(generationProgress.currentComponent / Math.max(generationProgress.components.length, 1)) * 100}%`
                     }}
@@ -1382,7 +1382,7 @@ Tip: I automatically detect and install npm packages from your code imports (lik
           <div className="relative w-full h-full bg-gray-50 flex items-center justify-center">
             <div className="text-center">
               <div className="mb-8">
-                <div className="w-16 h-16 border-4 border-orange-200 border-t-orange-500 rounded-full animate-spin mx-auto"></div>
+                <div className="w-16 h-16 border-4 border-purple-200 border-t-purple-500 rounded-full animate-spin mx-auto"></div>
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-2">
                 {loadingStage === 'gathering' && 'Gathering website information...'}
@@ -1407,7 +1407,7 @@ Tip: I automatically detect and install npm packages from your code imports (lik
               ref={iframeRef}
               src={sandboxData.url}
               className="w-full h-full border-none"
-              title="Open Lovable Sandbox"
+              title="Open Weblitz Sandbox"
               allow="clipboard-write"
               sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals"
             />
@@ -2745,21 +2745,21 @@ Focus on the key sections and content, making it clean and modern.`;
           {/* Simple Sun Gradient Background */}
           <div className="absolute inset-0 bg-white overflow-hidden">
             {/* Main Sun - Pulsing */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-orange-400/50 via-orange-300/30 to-transparent rounded-full blur-[80px] animate-[sunPulse_4s_ease-in-out_infinite]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-purple-400/50 via-blue-300/30 to-transparent rounded-full blur-[80px] animate-[sunPulse_4s_ease-in-out_infinite]" />
             
             {/* Inner Sun Core - Brighter */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-radial from-yellow-300/40 via-orange-400/30 to-transparent rounded-full blur-[40px] animate-[sunPulse_4s_ease-in-out_infinite_0.5s]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-radial from-cyan-300/40 via-purple-400/30 to-transparent rounded-full blur-[40px] animate-[sunPulse_4s_ease-in-out_infinite_0.5s]" />
             
             {/* Outer Glow - Subtle */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-gradient-radial from-orange-200/20 to-transparent rounded-full blur-[120px]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-gradient-radial from-purple-200/20 to-transparent rounded-full blur-[120px]" />
             
             {/* Giant Glowing Orb - Center Bottom */}
             <div className="absolute bottom-0 left-1/2 w-[800px] h-[800px] animate-[orbShrink_3s_ease-out_forwards]" style={{ transform: 'translateX(-50%) translateY(45%)' }}>
               <div className="relative w-full h-full">
-                <div className="absolute inset-0 bg-orange-600 rounded-full blur-[100px] opacity-30 animate-pulse"></div>
-                <div className="absolute inset-16 bg-orange-500 rounded-full blur-[80px] opacity-40 animate-pulse" style={{ animationDelay: '0.3s' }}></div>
-                <div className="absolute inset-32 bg-orange-400 rounded-full blur-[60px] opacity-50 animate-pulse" style={{ animationDelay: '0.6s' }}></div>
-                <div className="absolute inset-48 bg-yellow-300 rounded-full blur-[40px] opacity-60"></div>
+                <div className="absolute inset-0 bg-purple-600 rounded-full blur-[100px] opacity-30 animate-pulse"></div>
+                <div className="absolute inset-16 bg-purple-500 rounded-full blur-[80px] opacity-40 animate-pulse" style={{ animationDelay: '0.3s' }}></div>
+                <div className="absolute inset-32 bg-purple-400 rounded-full blur-[60px] opacity-50 animate-pulse" style={{ animationDelay: '0.6s' }}></div>
+                <div className="absolute inset-48 bg-cyan-300 rounded-full blur-[40px] opacity-60"></div>
               </div>
             </div>
           </div>
@@ -2786,16 +2786,16 @@ Focus on the key sections and content, making it clean and modern.`;
           
           {/* Header */}
           <div className="absolute top-0 left-0 right-0 z-20 px-6 py-4 flex items-center justify-between animate-[fadeIn_0.8s_ease-out]">
-            <img
-              src="/firecrawl-logo-with-fire.webp"
-              alt="Firecrawl"
-              className="h-8 w-auto"
-            />
+            <div className="flex items-center">
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent tracking-wider font-mono">
+                WEBLITZ
+              </h1>
+            </div>
             <a 
-              href="https://github.com/mendableai/open-lovable" 
+              href="https://github.com/rushaan7/weblitz" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#36322F] text-white px-3 py-2 rounded-[10px] text-sm font-medium [box-shadow:inset_0px_-2px_0px_0px_#171310,_0px_1px_6px_0px_rgba(58,_33,_8,_58%)] hover:translate-y-[1px] hover:scale-[0.98] hover:[box-shadow:inset_0px_-1px_0px_0px_#171310,_0px_1px_3px_0px_rgba(58,_33,_8,_40%)] active:translate-y-[2px] active:scale-[0.97] active:[box-shadow:inset_0px_1px_1px_0px_#171310,_0px_1px_2px_0px_rgba(58,_33,_8,_30%)] transition-all duration-200"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white px-3 py-2 rounded-[10px] text-sm font-medium shadow-lg hover:shadow-xl hover:from-purple-700 hover:via-blue-700 hover:to-cyan-600 transition-all duration-200"
             >
               <FiGithub className="w-4 h-4" />
               <span>Use this template</span>
@@ -2805,11 +2805,11 @@ Focus on the key sections and content, making it clean and modern.`;
           {/* Main content */}
           <div className="relative z-10 h-full flex items-center justify-center px-4">
             <div className="text-center max-w-4xl min-w-[600px] mx-auto">
-              {/* Firecrawl-style Header */}
+              {/* weblitz-style Header */}
               <div className="text-center">
                 <h1 className="text-[2.5rem] lg:text-[3.8rem] text-center text-[#36322F] font-semibold tracking-tight leading-[0.9] animate-[fadeIn_0.8s_ease-out]">
-                  <span className="hidden md:inline">Open Lovable</span>
-                  <span className="md:hidden">Open Lovable</span>
+                  <span className="hidden md:inline">Open Weblitz</span>
+                  <span className="md:hidden">Open Weblitz</span>
                 </h1>
                 <motion.p 
                   className="text-base lg:text-lg max-w-lg mx-auto mt-2.5 text-zinc-500 text-center text-balance"
@@ -2842,8 +2842,8 @@ Focus on the key sections and content, making it clean and modern.`;
                       }
                     }}
                     placeholder=" "
-                    aria-placeholder="https://firecrawl.dev"
-                    className="h-[3.25rem] w-full resize-none focus-visible:outline-none focus-visible:ring-orange-500 focus-visible:ring-2 rounded-[18px] text-sm text-[#36322F] px-4 pr-12 border-[.75px] border-border bg-white"
+                    aria-placeholder="https://weblitzai.vercel.app"
+                    className="h-[3.25rem] w-full resize-none focus-visible:outline-none focus-visible:ring-purple-500 focus-visible:ring-2 rounded-[18px] text-sm text-[#36322F] px-4 pr-12 border-[.75px] border-purple-200 bg-white focus:border-purple-400 transition-all duration-200"
                     style={{
                       boxShadow: '0 0 0 1px #e3e1de66, 0 1px 2px #5f4a2e14, 0 4px 6px #5f4a2e0a, 0 40px 40px -24px #684b2514',
                       filter: 'drop-shadow(rgba(249, 224, 184, 0.3) -0.731317px -0.731317px 35.6517px)'
@@ -2857,7 +2857,7 @@ Focus on the key sections and content, making it clean and modern.`;
                     }`}
                   >
                     <span className="text-[#605A57]/50" style={{ fontFamily: 'monospace' }}>
-                      https://firecrawl.dev
+                      https://weblitzai.vercel.app
                     </span>
                   </div>
                   <button
@@ -2923,8 +2923,8 @@ Focus on the key sections and content, making it clean and modern.`;
                             }}
                             className={`p-3 rounded-lg border transition-all ${
                               selectedStyle === style.name
-                                ? 'border-orange-400 bg-orange-50 text-gray-900 shadow-sm'
-                                : 'border-gray-200 bg-white hover:border-orange-200 hover:bg-orange-50/50 text-gray-700'
+                                ? 'border-purple-400 bg-purple-50 text-gray-900 shadow-sm'
+                                : 'border-gray-200 bg-white hover:border-purple-200 hover:bg-purple-50/50 text-gray-700'
                             }`}
                           >
                             <div className="text-sm font-medium">{style.name}</div>
@@ -2961,7 +2961,7 @@ Focus on the key sections and content, making it clean and modern.`;
                             }
                           }}
                           placeholder="Add more details: specific features, color preferences..."
-                          className="w-full px-4 py-2 text-sm bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-orange-300 focus:ring-2 focus:ring-orange-100 transition-all duration-200"
+                          className="w-full px-4 py-2 text-sm bg-white border border-purple-200 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-100 transition-all duration-200"
                         />
                       </div>
                     </div>
@@ -2984,7 +2984,7 @@ Focus on the key sections and content, making it clean and modern.`;
                     }
                     router.push(`/?${params.toString()}`);
                   }}
-                  className="px-3 py-1.5 text-sm bg-white border border-gray-300 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-[#36322F] focus:border-transparent"
+                  className="px-3 py-1.5 text-sm bg-white border border-purple-200 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
                   style={{
                     boxShadow: '0 0 0 1px #e3e1de66, 0 1px 2px #5f4a2e14'
                   }}
@@ -3001,13 +3001,13 @@ Focus on the key sections and content, making it clean and modern.`;
         </div>
       )}
       
-      <div className="bg-card px-4 py-4 border-b border-border flex items-center justify-between">
+      <div className="bg-gradient-to-r from-purple-50 via-blue-50 to-cyan-50 px-4 py-4 border-b border-purple-200 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <img
-            src="/firecrawl-logo-with-fire.webp"
-            alt="Firecrawl"
-            className="h-8 w-auto"
-          />
+          <div className="flex items-center">
+            <h1 className="text-xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent tracking-wider font-mono">
+              WEBLITZ
+            </h1>
+          </div>
         </div>
         <div className="flex items-center gap-2">
           {/* Model Selector - Left side */}
@@ -3023,7 +3023,7 @@ Focus on the key sections and content, making it clean and modern.`;
               }
               router.push(`/?${params.toString()}`);
             }}
-            className="px-3 py-1.5 text-sm bg-white border border-gray-300 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-[#36322F] focus:border-transparent"
+            className="px-3 py-1.5 text-sm bg-white/80 backdrop-blur-sm border border-purple-200 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent shadow-sm"
           >
             {appConfig.ai.availableModels.map(model => (
               <option key={model} value={model}>
@@ -3036,6 +3036,7 @@ Focus on the key sections and content, making it clean and modern.`;
             onClick={() => createSandbox()}
             size="sm"
             title="Create new sandbox"
+            className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 hover:from-purple-700 hover:via-blue-700 hover:to-cyan-600 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-200"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -3047,6 +3048,7 @@ Focus on the key sections and content, making it clean and modern.`;
             size="sm"
             title="Re-apply last generation"
             disabled={!conversationContext.lastGeneratedCode || !sandboxData}
+            className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 hover:from-purple-700 hover:via-blue-700 hover:to-cyan-600 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -3058,14 +3060,15 @@ Focus on the key sections and content, making it clean and modern.`;
             disabled={!sandboxData}
             size="sm"
             title="Download your Vite app as ZIP"
+            className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 hover:from-purple-700 hover:via-blue-700 hover:to-cyan-600 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
             </svg>
           </Button>
-          <div className="inline-flex items-center gap-2 bg-[#36322F] text-white px-3 py-1.5 rounded-[10px] text-sm font-medium [box-shadow:inset_0px_-2px_0px_0px_#171310,_0px_1px_6px_0px_rgba(58,_33,_8,_58%)]">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white px-3 py-1.5 rounded-[10px] text-sm font-medium shadow-lg">
             <span id="status-text">{status.text}</span>
-            <div className={`w-2 h-2 rounded-full ${status.active ? 'bg-green-500' : 'bg-gray-500'}`} />
+            <div className={`w-2 h-2 rounded-full ${status.active ? 'bg-green-400' : 'bg-white/70'}`} />
           </div>
         </div>
       </div>
@@ -3124,12 +3127,12 @@ Focus on the key sections and content, making it clean and modern.`;
                   <div className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'} mb-1`}>
                     <div className="block">
                       <div className={`block rounded-[10px] px-4 py-2 ${
-                        msg.type === 'user' ? 'bg-[#36322F] text-white ml-auto max-w-[80%]' :
+                        msg.type === 'user' ? 'bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white ml-auto max-w-[80%] shadow-lg' :
                         msg.type === 'ai' ? 'bg-gray-100 text-gray-900 mr-auto max-w-[80%]' :
-                        msg.type === 'system' ? 'bg-[#36322F] text-white text-sm' :
-                        msg.type === 'command' ? 'bg-[#36322F] text-white font-mono text-sm' :
+                        msg.type === 'system' ? 'bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white text-sm shadow-lg' :
+                        msg.type === 'command' ? 'bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white font-mono text-sm shadow-lg' :
                         msg.type === 'error' ? 'bg-red-900 text-red-100 text-sm border border-red-700' :
-                        'bg-[#36322F] text-white text-sm'
+                        'bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white text-sm shadow-lg'
                       }`}>
                     {msg.type === 'command' ? (
                       <div className="flex items-start gap-2">
@@ -3180,7 +3183,7 @@ Focus on the key sections and content, making it clean and modern.`;
                           return (
                             <div
                               key={`applied-${fileIdx}`}
-                              className="inline-flex items-center gap-1 px-2 py-1 bg-[#36322F] text-white rounded-[10px] text-xs animate-fade-in-up"
+                              className="inline-flex items-center gap-1 px-2 py-1 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white rounded-[10px] text-xs animate-fade-in-up shadow-sm"
                               style={{ animationDelay: `${fileIdx * 30}ms` }}
                             >
                               <span className={`inline-block w-1.5 h-1.5 rounded-full ${
@@ -3205,7 +3208,7 @@ Focus on the key sections and content, making it clean and modern.`;
                         {generationProgress.files.map((file, fileIdx) => (
                           <div
                             key={`complete-${fileIdx}`}
-                            className="inline-flex items-center gap-1 px-2 py-1 bg-[#36322F] text-white rounded-[10px] text-xs animate-fade-in-up"
+                            className="inline-flex items-center gap-1 px-2 py-1 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white rounded-[10px] text-xs animate-fade-in-up shadow-sm"
                             style={{ animationDelay: `${fileIdx * 30}ms` }}
                           >
                             <span className={`inline-block w-1.5 h-1.5 rounded-full ${
@@ -3242,7 +3245,7 @@ Focus on the key sections and content, making it clean and modern.`;
                   {generationProgress.files.map((file, idx) => (
                     <div
                       key={`file-${idx}`}
-                      className="inline-flex items-center gap-1 px-2 py-1 bg-[#36322F] text-white rounded-[10px] text-xs animate-fade-in-up"
+                      className="inline-flex items-center gap-1 px-2 py-1 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white rounded-[10px] text-xs animate-fade-in-up shadow-sm"
                       style={{ animationDelay: `${idx * 30}ms` }}
                     >
                       <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -3254,7 +3257,7 @@ Focus on the key sections and content, making it clean and modern.`;
                   
                   {/* Show current file being generated */}
                   {generationProgress.currentFile && (
-                    <div className="flex items-center gap-1 px-2 py-1 bg-[#36322F]/70 text-white rounded-[10px] text-xs animate-pulse"
+                    <div className="flex items-center gap-1 px-2 py-1 bg-gradient-to-r from-purple-600/70 via-blue-600/70 to-cyan-500/70 text-white rounded-[10px] text-xs animate-pulse shadow-sm"
                       style={{ animationDelay: `${generationProgress.files.length * 30}ms` }}>
                       <div className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin" />
                       {generationProgress.currentFile.path.split('/').pop()}
@@ -3299,7 +3302,7 @@ Focus on the key sections and content, making it clean and modern.`;
                           return startIndex !== -1 ? lastContent.slice(startIndex) : lastContent;
                         })()}
                       </SyntaxHighlighter>
-                      <span className="inline-block w-2 h-3 bg-orange-400 ml-3 mb-3 animate-pulse" />
+                      <span className="inline-block w-2 h-3 bg-purple-400 ml-3 mb-3 animate-pulse" />
                     </div>
                   </motion.div>
                 )}
@@ -3310,7 +3313,7 @@ Focus on the key sections and content, making it clean and modern.`;
           <div className="p-4 border-t border-border bg-card">
             <div className="relative">
               <Textarea
-                className="min-h-[60px] pr-12 resize-y border-2 border-black focus:outline-none"
+                className="min-h-[60px] pr-12 resize-y border-2 border-purple-200 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-200 transition-all duration-200"
                 placeholder=""
                 value={aiChatInput}
                 onChange={(e) => setAiChatInput(e.target.value)}
@@ -3324,7 +3327,7 @@ Focus on the key sections and content, making it clean and modern.`;
               />
               <button
                 onClick={sendChatMessage}
-                className="absolute right-2 bottom-2 p-2 bg-[#36322F] text-white rounded-[10px] hover:bg-[#4a4542] [box-shadow:inset_0px_-2px_0px_0px_#171310,_0px_1px_6px_0px_rgba(58,_33,_8,_58%)] hover:translate-y-[1px] hover:scale-[0.98] hover:[box-shadow:inset_0px_-1px_0px_0px_#171310,_0px_1px_3px_0px_rgba(58,_33,_8,_40%)] active:translate-y-[2px] active:scale-[0.97] active:[box-shadow:inset_0px_1px_1px_0px_#171310,_0px_1px_2px_0px_rgba(58,_33,_8,_30%)] transition-all duration-200"
+                className="absolute right-2 bottom-2 p-2 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 hover:from-purple-700 hover:via-blue-700 hover:to-cyan-600 text-white rounded-[10px] shadow-lg hover:shadow-xl transition-all duration-200"
                 title="Send message (Enter)"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -3339,13 +3342,13 @@ Focus on the key sections and content, making it clean and modern.`;
         <div className="flex-1 flex flex-col overflow-hidden">
           <div className="px-4 py-2 bg-card border-b border-border flex justify-between items-center">
             <div className="flex items-center gap-4">
-              <div className="flex bg-[#36322F] rounded-lg p-1">
+              <div className="flex bg-gradient-to-r from-purple-100 via-blue-100 to-cyan-100 rounded-lg p-1 border border-purple-200">
                 <button
                   onClick={() => setActiveTab('generation')}
                   className={`p-2 rounded-md transition-all ${
                     activeTab === 'generation' 
-                      ? 'bg-black text-white' 
-                      : 'text-gray-300 hover:text-white hover:bg-gray-700'
+                      ? 'bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white shadow-lg' 
+                      : 'text-gray-600 hover:text-purple-700 hover:bg-white/50'
                   }`}
                   title="Code"
                 >
@@ -3357,8 +3360,8 @@ Focus on the key sections and content, making it clean and modern.`;
                   onClick={() => setActiveTab('preview')}
                   className={`p-2 rounded-md transition-all ${
                     activeTab === 'preview' 
-                      ? 'bg-black text-white' 
-                      : 'text-gray-300 hover:text-white hover:bg-gray-700'
+                      ? 'bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white shadow-lg' 
+                      : 'text-gray-600 hover:text-purple-700 hover:bg-white/50'
                   }`}
                   title="Preview"
                 >
@@ -3378,7 +3381,7 @@ Focus on the key sections and content, making it clean and modern.`;
                       {generationProgress.files.length} files generated
                     </div>
                   )}
-                  <div className={`inline-flex items-center justify-center whitespace-nowrap rounded-[10px] font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-[#36322F] text-white hover:bg-[#36322F] [box-shadow:inset_0px_-2px_0px_0px_#171310,_0px_1px_6px_0px_rgba(58,_33,_8,_58%)] hover:translate-y-[1px] hover:scale-[0.98] hover:[box-shadow:inset_0px_-1px_0px_0px_#171310,_0px_1px_3px_0px_rgba(58,_33,_8,_40%)] active:translate-y-[2px] active:scale-[0.97] active:[box-shadow:inset_0px_1px_1px_0px_#171310,_0px_1px_2px_0px_rgba(58,_33,_8,_30%)] disabled:shadow-none disabled:hover:translate-y-0 disabled:hover:scale-100 h-8 px-3 py-1 text-sm gap-2`}>
+                  <div className={`inline-flex items-center justify-center whitespace-nowrap rounded-[10px] font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 hover:from-purple-700 hover:via-blue-700 hover:to-cyan-600 text-white shadow-lg hover:shadow-xl transition-all duration-200 h-8 px-3 py-1 text-sm gap-2`}>
                     {generationProgress.isGenerating ? (
                       <>
                         <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]" />
@@ -3399,6 +3402,7 @@ Focus on the key sections and content, making it clean and modern.`;
                     variant="code"
                     size="sm"
                     asChild
+                    className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 hover:from-purple-700 hover:via-blue-700 hover:to-cyan-600 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-200"
                   >
                     <a 
                       href={sandboxData.url} 

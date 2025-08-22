@@ -20,10 +20,25 @@ export async function POST(request: NextRequest) {
   try {
     const { url } = await request.json();
     
+    console.log('[scrape-url-enhanced] Received URL:', url);
+    console.log('[scrape-url-enhanced] URL type:', typeof url);
+    
     if (!url) {
+      console.log('[scrape-url-enhanced] No URL provided');
       return NextResponse.json({
         success: false,
         error: 'URL is required'
+      }, { status: 400 });
+    }
+    
+    // Validate URL format
+    try {
+      new URL(url);
+    } catch (urlError) {
+      console.log('[scrape-url-enhanced] Invalid URL format:', urlError);
+      return NextResponse.json({
+        success: false,
+        error: `Invalid URL format: ${url}`
       }, { status: 400 });
     }
     

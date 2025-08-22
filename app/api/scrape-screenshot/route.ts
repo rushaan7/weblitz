@@ -4,9 +4,25 @@ export async function POST(req: NextRequest) {
   try {
     const { url } = await req.json();
     
+    console.log('[scrape-screenshot] Received URL:', url);
+    console.log('[scrape-screenshot] URL type:', typeof url);
+    
     if (!url) {
+      console.log('[scrape-screenshot] No URL provided');
       return NextResponse.json({ error: 'URL is required' }, { status: 400 });
     }
+    
+    // Validate URL format
+    try {
+      new URL(url);
+    } catch (urlError) {
+      console.log('[scrape-screenshot] Invalid URL format:', urlError);
+      return NextResponse.json({
+        error: `Invalid URL format: ${url}`
+      }, { status: 400 });
+    }
+    
+    console.log('[scrape-screenshot] Capturing screenshot for:', url);
 
     // Use Firecrawl API to capture screenshot
     const firecrawlResponse = await fetch('https://api.firecrawl.dev/v1/scrape', {
