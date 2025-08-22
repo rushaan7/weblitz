@@ -3,7 +3,7 @@ import { createGroq } from '@ai-sdk/groq';
 import { createAnthropic } from '@ai-sdk/anthropic';
 import { createOpenAI } from '@ai-sdk/openai';
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
-import { generateObject } from 'ai';
+import { streamText } from 'ai';
 import { z } from 'zod';
 import type { FileManifest } from '@/types/file-manifest';
 
@@ -94,7 +94,7 @@ export async function POST(request: NextRequest) {
     console.log('[analyze-edit-intent] File summary preview:', fileSummary.split('\n').slice(0, 5).join('\n'));
     
     // Select the appropriate AI model based on the request
-    let aiModel;
+    let aiModel: any;
     if (model.startsWith('anthropic/')) {
       aiModel = anthropic(model.replace('anthropic/', ''));
     } else if (model.startsWith('openai/')) {
@@ -112,10 +112,9 @@ export async function POST(request: NextRequest) {
     
     console.log('[analyze-edit-intent] Using AI model:', model);
     
-    // Use AI to create a search plan
-    const result = await generateObject({
-      model: aiModel,
-      schema: searchPlanSchema,
+    // Use AI to create a search plan with streamText instead of generateObject
+    const result = await streamText({
+      model: aiModel as any,
       messages: [
         {
           role: 'system',
@@ -146,7 +145,21 @@ SEARCH STRATEGY RULES:
    - Add regex patterns for structural searches
 
 Current project structure for context:
-${fileSummary}`
+${fileSummary}
+
+Please respond with a JSON object that matches this schema:
+{
+  "editType": "UPDATE_COMPONENT|ADD_FEATURE|FIX_ISSUE|UPDATE_STYLE|REFACTOR|ADD_DEPENDENCY|REMOVE_ELEMENT",
+  "reasoning": "explanation of search strategy",
+  "searchTerms": ["specific", "search", "terms"],
+  "regexPatterns": ["regex pattern 1", "regex pattern 2"],
+  "fileTypesToSearch": [".jsx", ".tsx", ".js", ".ts"],
+  "expectedMatches": 1,
+  "fallbackSearch": {
+    "terms": ["fallback", "terms"],
+    "patterns": ["fallback regex"]
+  }
+}`
         },
         {
           role: 'user',
@@ -156,18 +169,52 @@ Create a search plan to find the exact code that needs to be modified. Include s
         }
       ]
     });
+
+    // Collect the full response
+    let fullResponse = '';
+    for await (const chunk of result.textStream) {
+      fullResponse += chunk;
+    }
+
+    // Try to parse the JSON response
+    let searchPlan;
+    try {
+      // Extract JSON from the response (in case there's extra text)
+      const jsonMatch = fullResponse.match(/\{[\s\S]*\}/);
+      if (jsonMatch) {
+        searchPlan = JSON.parse(jsonMatch[0]);
+      } else {
+        throw new Error('No JSON found in response');
+      }
+    } catch (parseError) {
+      console.error('[analyze-edit-intent] Failed to parse AI response:', parseError);
+      console.error('[analyze-edit-intent] Raw response:', fullResponse);
+      
+      // Fallback: create a basic search plan
+      searchPlan = {
+        editType: 'UPDATE_COMPONENT',
+        reasoning: 'Failed to parse AI response, using fallback search strategy',
+        searchTerms: prompt.toLowerCase().split(' ').filter((word: string) => word.length > 3).slice(0, 5),
+        regexPatterns: [],
+        fileTypesToSearch: ['.jsx', '.tsx', '.js', '.ts'],
+        expectedMatches: 1
+      };
+    }
+
+    // Validate the search plan against our schema
+    const validatedPlan = searchPlanSchema.parse(searchPlan);
     
     console.log('[analyze-edit-intent] Search plan created:', {
-      editType: result.object.editType,
-      searchTerms: result.object.searchTerms,
-      patterns: result.object.regexPatterns?.length || 0,
-      reasoning: result.object.reasoning
+      editType: validatedPlan.editType,
+      searchTerms: validatedPlan.searchTerms,
+      patterns: validatedPlan.regexPatterns?.length || 0,
+      reasoning: validatedPlan.reasoning
     });
     
     // Return the search plan, not file matches
     return NextResponse.json({
       success: true,
-      searchPlan: result.object
+      searchPlan: validatedPlan
     });
     
   } catch (error) {
